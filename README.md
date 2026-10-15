@@ -6,8 +6,6 @@ This project was built for **BCA182 Laboratory Activity 2** using the RT-Thread 
 
 The LCD shows song artwork, playback progress, a five-second selection countdown and volume changes. Four onboard buttons handle song selection and playback controls.
 
-> This edition includes all eight demonstration songs in `include/custom_songs.h`. It does not include the commercial song arrangements used in the private development project. The player engine is unchanged; the new songs and artwork have not been tested on the physical board.
-
 ## Features
 
 - Eight demonstration melodies selected using stored binary bits that toggle on button taps.
@@ -179,11 +177,11 @@ Exit with Ctrl+C. Startup output includes `BOOT: UART OK`, a `PLAYER READY | tas
 
 ## Testing and validation
 
-The shared player engine passed the seven tests below in the private development project. That project used a different playlist and artwork. These are prior hardware results, not physical validation of the public demonstration melodies or artwork. This edition has not been uploaded to the board.
+The shared player engine passed the seven tests below in the private development project, which used a different playlist and artwork. The public demonstration melodies have not yet been physically tested.
 
 | Physical test | Reported result |
 | --- | --- |
-| Buzzer playback | The previous playlist played on the actual board; new demo melodies are not yet hardware-tested |
+| Buzzer playback | The previous playlist played on the actual board |
 | Tap-to-toggle selection | Persistent combinations, including `111`, work with individual taps |
 | Confirmation and timeout | Second UP confirms; five-second expiry retains current playback |
 | Pause/resume | One action per long hold; current entry and remaining time preserved |
@@ -195,7 +193,7 @@ USART1 output was also previously verified on COM3 at 115200 baud. Binary inspec
 
 A separate automated run passed **31 Cortex-M4 emulation tests** using the button and playback functions with simulated GPIO, time, RTOS services, UART and waveform output. The tests covered song mappings, bounce, gesture thresholds, timeout, pause, stop and replay. They do not measure hardware timing or power consumption. Test tools and logs remain local.
 
-The public edition passed a clean `black_f407zg` build with no compiler or linker warnings: **38,876 bytes flash** and **19,316 bytes RAM**. All eight demo arrays passed checks for positive durations, rests and valid pitches. It has not been uploaded, so its songs, artwork and ST-Link programming have not been physically tested.
+The public edition passed a clean `black_f407zg` build with no compiler or linker warnings: **38,876 bytes flash** and **19,316 bytes RAM**. All eight demo arrays passed checks for positive durations, rests and valid pitches.
 
 ## Limitations and laboratory adaptations
 
